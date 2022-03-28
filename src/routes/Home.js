@@ -3,6 +3,7 @@ import {dbService, storageService} from "../fbase";
 import {Nweet} from "../components/Nweet";
 import {ref, uploadString, getDownloadURL} from "@firebase/storage";
 import {NweetFactory} from "../components/NweetFactory";
+import { Form } from 'react-bootstrap'
 
 
 export const Home = ({userObj}) => {
@@ -34,13 +35,13 @@ export const Home = ({userObj}) => {
     }, []);
 
     return (
-        <div>
+        <Form>
             <NweetFactory userObj={userObj}/>
             <div>
                 {nweets.map((nweet) => (
                     <Nweet key={nweet.id} nweetObj={nweet} isOwner={nweet.creatorId === userObj.uid}/>
                 ))}
             </div>
-        </div>
+        </Form>
     );
 }

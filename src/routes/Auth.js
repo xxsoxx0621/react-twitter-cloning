@@ -1,8 +1,22 @@
 import React, {useState} from "react";
 import {authService, firebaseInstance} from "../fbase";
 import {AuthForm} from "../components/AuthForm";
+import Styled from 'styled-components';
 
 export const Auth = () => {
+    const Div = Styled.div`
+            width:100%;
+            height:100vh;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            justify-content:center;
+            
+    `;
+    const customBtn = Styled.button`
+        border:1px solid black;
+        background-color
+    `;
 
     const onSocialClick = async (event) => {
         const
@@ -17,12 +31,12 @@ export const Auth = () => {
 
     }
     return (
-        <div>
+        <Div>
            <AuthForm/>
-            <div>
-                <button onClick={onSocialClick} name="google">Continue with Google</button>
-                <button onClick={onSocialClick} name="github">Continue with Github</button>
+            <div style={{width:"30%",height:"150px",display:"flex"}}>
+                <button style={{width:"50%",height:"40px",margin:"2%",borderRadius:"10px"}} onClick={onSocialClick} name="google">Continue with Google</button>
+                <button style={{width:"50%",height:"40px",margin:"2%",borderRadius:"10px"}} onClick={onSocialClick} name="github">Continue with Github</button>
             </div>
-        </div>
+        </Div>
     )
 };

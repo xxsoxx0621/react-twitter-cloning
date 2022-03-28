@@ -1,7 +1,7 @@
 import {AppRouter} from "./Router";
 import {useEffect, useState} from "react";
 import {authService} from "../fbase";
-
+import 'App.css';
 
 function App() {
     // 유저를 가져와서 로그인 여부를 판단해야함
