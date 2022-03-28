@@ -5,15 +5,15 @@ import  {Auth} from  '../routes/Auth'
 import {Navigation} from "./Navigation";
 import {Profile} from "../routes/Profile";
 
-export const AppRouter = ({isLoggedIn, userObj}) => {
+export const AppRouter = ({refreshUser,isLoggedIn, userObj}) => {
     return (
         <Router>
-            {isLoggedIn && <Navigation/>}
+            {isLoggedIn && <Navigation userObj={userObj}/>}
             <Routes>
                 {isLoggedIn ?(
                     <>
                         <Route path="/" element={<Home userObj={userObj}/>}/>
-                        <Route path="/profile" element={<Profile/>}/>
+                        <Route path="/profile" element={<Profile userObj={userObj} refreshUser={refreshUser}/>}/>
                     </>
                     ) :(
                         <>

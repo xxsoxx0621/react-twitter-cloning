@@ -27,7 +27,7 @@ export const Auth = () => {
                 // log in
                  data = await  authService.signInWithEmailAndPassword(email,password)
             }
-            console.log(data);
+            // console.log(data);
         }catch (error) {
             setError(error.message);
         }
@@ -48,7 +48,6 @@ export const Auth = () => {
             provider = new firebaseInstance.auth.GithubAuthProvider();
         }
         const data = await authService.signInWithPopup(provider);
-        console.log(data);
 
     }
     return (

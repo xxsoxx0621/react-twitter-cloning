@@ -9,7 +9,7 @@ export const Home = ({userObj}) => {
     const [nweet, setNweet] = useState("");
     // db에서 가져오기 위해서 state
     const [nweets, setNweets] = useState([]);
-    const [attachment, setAttachment] = useState();
+    const [attachment, setAttachment] = useState("");
     // old getNweets => re-render 발생
     // const getNweets = async () => {
     //     const dbnweets = await dbService.collection("nweets").get();
