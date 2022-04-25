@@ -3,8 +3,7 @@ import {authService, firebaseInstance} from "../fbase";
 import {AuthForm} from "../components/AuthForm";
 import Styled from 'styled-components';
 
-export const Auth = () => {
-    const Div = Styled.div`
+const Div = Styled.div`
             width:100%;
             height:100vh;
             display:flex;
@@ -13,10 +12,21 @@ export const Auth = () => {
             justify-content:center;
             
     `;
-    const customBtn = Styled.button`
-        border:1px solid black;
-        background-color
+const CustomBtn = Styled.button`
+        width:20%;
+        height:40px;
+        border-radius:5px;
+        margin-top:10px;
     `;
+
+const ButtonContainer = Styled.div`
+        width:100%;
+        display:flex;
+        margin-top:10px;
+        flex-direction:column;
+        align-items:center;
+`;
+export const Auth = () => {
 
     const onSocialClick = async (event) => {
         const
@@ -32,11 +42,11 @@ export const Auth = () => {
     }
     return (
         <Div>
-           <AuthForm/>
-            <div style={{width:"30%",height:"150px",display:"flex"}}>
-                <button style={{width:"50%",height:"40px",margin:"2%",borderRadius:"10px"}} onClick={onSocialClick} name="google">Continue with Google</button>
-                <button style={{width:"50%",height:"40px",margin:"2%",borderRadius:"10px"}} onClick={onSocialClick} name="github">Continue with Github</button>
-            </div>
+            <AuthForm/>
+            <ButtonContainer>
+                <CustomBtn onClick={onSocialClick} name="google">Continue with Google</CustomBtn>
+                <CustomBtn onClick={onSocialClick} name="github">Continue with Github</CustomBtn>
+            </ButtonContainer>
         </Div>
     )
 };
