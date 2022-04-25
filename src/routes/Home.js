@@ -3,8 +3,23 @@ import {dbService, storageService} from "../fbase";
 import {Nweet} from "../components/Nweet";
 import {ref, uploadString, getDownloadURL} from "@firebase/storage";
 import {NweetFactory} from "../components/NweetFactory";
+import Styled from "styled-components";
 
-
+const Container = Styled.div`
+    width:100%;
+    height:auto;
+    display:flex;
+    justify-content: center;
+`;
+const Div = Styled.div`
+    background:#FFF;
+    width:50%;
+    display:flex;
+    flex-direction:column;
+    color:black;
+    border-radius:5px;
+   
+`;
 export const Home = ({userObj}) => {
     const [nweets, setNweets] = useState([]);
 
@@ -34,13 +49,15 @@ export const Home = ({userObj}) => {
     }, []);
 
     return (
-        <>
-            <NweetFactory userObj={userObj}/>
-            <div>
-                {nweets.map((nweet) => (
-                    <Nweet key={nweet.id} nweetObj={nweet} isOwner={nweet.creatorId === userObj.uid}/>
-                ))}
-            </div>
-            </>
+        <Container>
+            <Div>
+                <NweetFactory userObj={userObj}/>
+                <div>
+                    {nweets.map((nweet) => (
+                        <Nweet key={nweet.id} nweetObj={nweet} isOwner={nweet.creatorId === userObj.uid}/>
+                    ))}
+                </div>
+            </Div>
+        </Container>
     );
 }
